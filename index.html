@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import font-awesome CDN  for ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>Indegene</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+        body {
+            opacity: 0;
+            transition-duration: 0.7s;
+            transition-property: opacity;
+        }
+
+        body.fade {
+            opacity: 1;
+        }
+       
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+        }
+        .social-menu{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .social-icon{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+           
+        }
+        .burger{
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+
+        }
+        .social-icon{
+            list-style-type: none;
+        }
+        .social-icon> li{
+            margin: .5em;
+            width: 36px;
+            height: 36px;
+            background-color: pink;
+            border-radius: 50%;
+            text-align: center;
+        }
+        .social-icon >li> i{
+            margin-top: 10px;
+            color: white;
+        }
+        .social-icon >li> i:hover{
+            font-size: 20px;
+            transition: ease-in;
+            color: ivory;
+        }
+        .menu{
+            margin-right: 10px;
+            text-transform: uppercase;
+            color: grey;
+        }
+        .logo{
+            margin-left: 14px;
+        }
+        #myLinks{
+            display: none;
+        }
+        
+        .icon{
+            color: grey;
+            font-size: 23px;
+            margin-right:20px;
+        }
+        .bg-list{
+            background-color: ivory;
+        }
+        .bg-list >ul{
+          list-style-type: none
+
+        }
+        .bg-list >ul>li{
+            font-size: 18px;
+            font-weight: 400;
+            margin: 1em;
+        }
+        .banner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: lightgray ;
+            
+        }
+        .btn{
+            margin: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn1{
+            background-color: lightsalmon;
+            padding: 1em;
+            outline-style: none;
+            border: none;
+        }
+        .btn> button{
+            margin: 7px;
+        }
+        .btn2{
+            padding: 1em;
+            padding-right: 3em;
+            outline-style: none;
+            border: none;
+            background-color: whitesmoke;
+
+        }
+        .btn1:hover{
+            background-color: white;
+            color: lightsalmon;
+            font-weight: 600;
+        }
+        .h1-heading{
+            font-size: 3em
+        }
+        .heading> h3{
+            text-align: center;
+        }
+        .banner-img{
+            position: relative;
+        }
+        .overlay{
+            width: 50%;
+            height: 100%;
+            background: rgba(114, 109, 101, 0.925);
+            position: absolute;
+            left: 0;
+            top:0;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sub-heading{
+            color: white;
+            padding: 10px;
+            margin-right: 300px;
+        }
+        .company>.services{
+          text-align: center;
+          color: coral;  
+          line-height: 50px;
+        }
+        .company>.company-s{
+            text-align: center;
+            margin: 1em;
+        }
+        .btn2:hover{
+            background-color:rgba(114, 109, 101, 0.925); 
+            border: 0.5px dashed black;
+            color: white;
+        }
+        .services-conainer{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+        .heading-flex{
+            max-width: 320px;
+        }
+        .sub-container{
+            display: flex;
+            align-items: center;
+        }
+        .heading-flex> p{
+            color: coral;
+            margin-top: 1em;
+        }
+        .icon-services{
+            margin: 1em;
+            margin-left: 8.7em;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: coral;
+            right: 0;
+            top: 0;
+        }
+        .icon-services-right{
+            margin: 1em;
+            margin-right: 8.7em;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(252, 130, 86, 0.904);
+            left: 0;
+            top: 0;
+        }
+        .icon-services > i, .icon-services-right>i{
+            margin-top: 31px;
+            font-size: 37px;
+            color: white;
+        }
+        .sub-section{
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .card-section{
+            position: absolute;
+            top: 250px;
+            padding: 4em;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        .card{
+            text-align: center;
+            margin: 1.2em;
+            margin-right: 6em;
+        }
+        .card > p{
+            max-width: 240px;
+            font-size: 20px;
+            line-height: 32px;
+            color: white;
+        }
+        .card> .circle-border> i{
+            font-size: 62px;
+            margin-bottom: 1em;
+            margin-top: 56px;
+            
+           
+          
+        }
+        
+        .position{
+            margin-top: 1em;
+        }
+        .head-test{
+            position: absolute;
+            top: 0;
+            text-align: center;
+            z-index: 2;
+            font-size: 34px;
+            letter-spacing: 2px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .circle-border{
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgb(20, 20, 20);
+            border-radius: 50%;
+            border-radius: 50%;
+            margin-left: 59px;
+        }
+        .rc-blog{
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1em;
+        }
+        .blog-card{
+            max-width: 300px;
+            margin: 1em;
+            padding: 1em;
+        }
+        .blog-content{
+            display: flex;
+            justify-content: space-between;
+            /* padding: 1em; */
+        }
+        .card-blog-container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .date{
+            padding: 10px 10px 80px 10px;
+            background-color: coral;
+            margin: 0px;
+        }
+        .date-no{
+           font-size: 21px;
+           color: grey;
+        }
+        .month{
+            font-size: 18px;
+            color: grey;
+        }
+        .header-blog{
+            text-align: center;
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px;
+        }
+        .header-blog-content{
+            text-align: center;
+            margin: 10px;
+        }
+        footer{
+            width: 100%;
+            text-align: center;
+            background-color: black;
+            padding: 4em 2em;
+            color: white;
+        }
+        .newsletter{
+            letter-spacing: 2px;
+            font-size: 42px;
+            font-family: 'Courier New', Courier, monospace  ;
+        }
+        .input-container{
+            padding: .3em;
+            position: relative;
+
+        }
+        .input-container> input{
+            width: 340px;
+            height: 50px;
+            border-radius: 2px;
+            margin: 0;
+            text-align: center;
+            font-weight: bold;
+            outline-style: none;
+            border: none;
+        }
+        .input-container> button{
+            height: 50px;
+            margin: 0;
+            position: absolute;
+            color: white;
+            background-color: coral;
+            outline-style: none;
+            border: none;
+        }
+        .input-container> button:hover{
+            background-color: rgb(238, 150, 88);
+            cursor: pointer;
+        }
+       .footer-container> ul{
+           list-style-type: none;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+       .footer-container> ul>li{
+           margin: 10px 20px;
+       }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="navbar">
+            <h2 class="logo">Indegene</h2>
+            <div class="social-menu">
+                <ul class="social-icon">
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-facebook-f"></i></li>
+                    <li><i class="fab fa-linkedin-in"></i></li>
+                </ul>
+                <div class="burger">
+                    <h4 class="menu">Menu</h4>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div id="myLinks" class="bg-list">
+       
+            <ul class="list">
+                <li>Home</li>
+                <li>About</li>
+                <li>Product</li>
+                <li>Event</li>
+                <li>Calender</li>
+                <li>Blog</li>
+                <li>Contact </li>
+            </ul>
+       
+        </div>
+        <div class="banner">
+            <div class="heading">
+                <h1 class="h1-heading">Enterprise Marketing and Customer Experience</h1>
+                <h3>LEVERAGE DATA TO DRIVE PERSONALIZATION AT SCALE</h3>
+                <div class="btn">
+                    <button class="btn1">The Global Transition</button>
+                    <button class="btn2"><i class="fas fa-play-circle"></i>Explore</button>
+
+                </div>
+            </div>
+        </div>  
+        <div class="banner-img">
+            <div class="overlay">
+                <div class="heading">
+                    <h1 class="h1-heading">The Digital Savvy Marketer 2020</h1>
+                    
+                        <h3 class="sub-heading"><span class="q">“</span>
+                             Must have tool for every pharma marketer
+                             <span class="q">„</span>
+                        </h3>
+                    
+                    <button class="btn2" style="margin:1em;"><i class="fas fa-play-circle"></i>Download</button>
+                </div>
+            </div>
+            <img src="bannerI.jpg" alt="pic" height="auto" width="100%"/>
+        </div>
+        <div class="company">
+            <h1 class="company-s">Company</h1>
+            <h3 class="services" >Services</h3>
+            <div class="services-conainer">
+                <div class="sub-container">
+                    <div class="heading-flex">
+                        <h2>Customer Experience</h2>
+                        <p>
+                            A must tool for pharma marketer to gain
+                            insight into the latest channel preference Marketing
+                            budget allocations, technology utliztion
+                        </p>
+                    </div>
+                    <div class="icon-services">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                </div>
+                <div class="sub-container">
+                    <div class="icon-services-right">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="heading-flex">
+                        <h2>Customer Experience</h2>
+                        <p>
+                            A must tool for pharma marketer to gain
+                            insight into the latest channel preference Marketing
+                            budget allocations, technology utliztion
+                        </p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="services-conainer">
+                <div class="sub-container">
+                    <div class="heading-flex">
+                        <h2>Customer Experience</h2>
+                        <p>
+                            A must tool for pharma marketer to gain
+                            insight into the latest channel preference Marketing
+                            budget allocations, technology utliztion
+                        </p>
+                    </div>
+                    <div class="icon-services">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                </div>
+                <div class="sub-container">
+                    <div class="icon-services-right">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="heading-flex">
+                        <h2>Customer Experience</h2>
+                        <p>
+                            A must tool for pharma marketer to gain
+                            insight into the latest channel preference Marketing
+                            budget allocations, technology utliztion
+                        </p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="services-conainer">
+                <div class="sub-container">
+                    <div class="heading-flex">
+                        <h2>Customer Experience</h2>
+                        <p>
+                            A must tool for pharma marketer to gain
+                            insight into the latest channel preference Marketing
+                            budget allocations, technology utliztion
+                        </p>
+                    </div>
+                    <div class="icon-services">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                </div>
+                <div class="sub-container">
+                    <div class="icon-services-right">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="heading-flex">
+                        <h2>Customer Experience</h2>
+                        <p>
+                            A must tool for pharma marketer to gain
+                            insight into the latest channel preference Marketing
+                            budget allocations, technology utliztion
+                        </p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <section class="section">
+                <div class="sub-section">
+                    <img src="forestbg.jpg" alt="2" width="100%" height="800px">
+                    
+
+                    <div class="card-section">
+                        <h2 class="head-test">Insperation Testominal</h2>
+                       <div class="card">
+                        <div class="circle-border">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <p>As one of the cofounders and the CEO, He is responsible for the Company strategy</p>
+                        <p><b>CEO</b></p>
+                       </div>
+                       <div class="card">
+                        <div class="circle-border">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <p>As one of the cofounders and the CEO, He is responsible for the Company strategy</p>
+                        <p class="position"><b>CEO</b></p>
+                    </div>
+                    <div class="card">
+                        <div class="circle-border">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <p>As one of the cofounders and the CEO, He is responsible for the Company strategy</p>
+                        <p><b>CEO</b></p>
+                    </div>
+                    </div>
+                </div>
+                
+            </section>
+            <blog>
+                <div class="blog-contaoner">
+                    <h1 class="rc-blog">Recent Blog</h1>
+                    <div class="card-blog-container">
+                        <div class="blog-card">
+                            <img src="forest2.jpg" alt="f" width="300px"/>
+                            <div class="blog-content">
+                                <div class="date">
+                                    <p><span class="date-no">18</span></p></br>
+                                    <span class="month">January</span></br>
+                                    <span class="year">2019</span>
+                                </div>
+                                <div class="blog-heading">
+                                    <h5 class="header-blog">Press Release</h5>
+                                    <p class="header-blog-content">Indegene Acquires DT Associates, Provides End-to-End Enterprise Solution for Customer
+                                    excellence -from Consulting to Opertions
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <img src="forest2.jpg" alt="f" width="300px"/>
+                            <div class="blog-content">
+                                <div class="date">
+                                    <p><span class="date-no">18</span></p></br>
+                                    <span class="month">January</span></br>
+                                    <span class="year">2019</span>
+                                </div>
+                                <div class="blog-heading">
+                                    <h5 class="header-blog">Press Release</h5>
+                                    <p class="header-blog-content">Indegene Acquires DT Associates, Provides End-to-End Enterprise Solution for Customer
+                                    excellence -from Consulting to Opertions
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <img src="forest2.jpg" alt="f" width="300px"/>
+                            <div class="blog-content">
+                                <div class="date">
+                                    <p><span class="date-no">18</span></p></br>
+                                    <span class="month">January</span></br>
+                                    <span class="year">2019</span>
+                                </div>
+                                <div class="blog-heading">
+                                    <h5 class="header-blog">Press Release</h5>
+                                    <p class="header-blog-content">Indegene Acquires DT Associates, Provides End-to-End Enterprise Solution for Customer
+                                    excellence -from Consulting to Opertions
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </blog>
+            <footer>
+                <div class="footer-container">
+                    <h1 class="newsletter">NEWSLETTER</h1>
+                    <div class="input-container">
+                        <input type="text" placeholder="Enter email address"/>
+                        <button class="subscribe">Subscribe</button>
+                    </div>
+                    <ul>
+                        <li>lorium|</li>
+                        <li>lorium|</li>
+                        <li>lorium|</li>
+
+
+                    </ul>
+                </div>
+            </footer>
+            
+        </div>
+        
+    </div>
+    <script>
+        document.body.className = 'fade';
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+
+        
+        </script>
+</body>
+</html>
